@@ -19,7 +19,8 @@ cleaned as (
 
         -- Booleans
         (merged_at is not null) as is_merged,
-        coalesce(cast(draft as boolean), false) as is_draft,
+        cast(draft as boolean) = true as is_draft,
+        
 
         case
             when merged_at is not null then
